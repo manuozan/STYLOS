@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<head>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="google" content="notranslate" />
+  <script src="scripts.js"></script>
+</head>
+<body>
+  <nav style="background-color: #6dd459">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+      "
+    >
+      <a
+        href="#"
+        style="color: #ffffff; font-size: 1.5rem; text-decoration: none"
+        >STYLOS</a
+      >
+      <form style="display: flex">
+        <input
+          type="text"
+          placeholder="Buscar productos"
+          style="
+            background-color: #ffffff;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 3px;
+            width: 30vw;
+          "
+        />
+        <button onclick="search()"
+          style="
+            background-color: #ffffff;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 3px;
+            margin-left: -4px;
+          "
+        >
+          <svg
+            width="24"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            stroke="#6dd459"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="10" cy="10" r="7"></circle>
+            <path d="M21 21l-5.2-5.2"></path>
+          </svg>
+        </button>
+      </form>
+      <button id="checkout" class="button-checkout" onclick="pay()">
+        Pagar
+      </button>
+    </div>
+  </nav>
+
+  <!-- <aside class="sidebar">
+    <h3>Categorías</h3>
+    <ul>
+      <li>Todo</li>
+      <li>Santísima Trinidad</li>
+      <li>Loreto</li>
+      <li>Isabel la Católica</li>
+      <li>Palomita</li>
+      <li>Pequeños Artistas</li>
+    </ul>
+
+    <h3>Ordenar por</h3>
+    <ul>
+      <li>Categorías</li>
+      <li>Menor precio</li>
+      <li>Mayor precio</li>
+      <li>A-Z</li>
+      <li>Z-A</li>
+    </ul>
+
+    <h3>Modo de exhibición</h3>
+    <ul>
+      <li>Instaview</li>
+      <li>Lista</li>
+    </ul>
+
+    <h3>Contacto</h3>
+    <ul>
+      <li>+54 351 221 1863</li>
+      <li>+543512211863</li>
+      <li>Pascual De Rogatis 2630</li>
+      <li>CUIT: 27123342513</li>
+    </ul>
+  </aside> -->
+  <div class="page-content">
+    <div class="product-container">
+      <h3>buzo primario</h3>
+      <img src="images/product-1.jpg" />
+      <div>
+        <select id="select-1" onchange="myFunction()">
+          <option value="" disabled selected>Seleccione un talle</option>
+          <option value="7700">Talle 4</option>
+          <option value="7700">Talle 6</option>
+          <option value="8000">Talle 8</option>
+          <option value="8000">Talle 10</option>
+          <option value="8500">Talle 12</option>
+          <option value="8500">Talle 14</option>
+          <option value="9000">Talle 16</option>
+        </select>
+      </div>
+      <h1 id="price-1">$7700</h1>
+      <button class="button-add" onclick="add('product-1', parseInt(document.getElementById('select-1').value))">Agregar</button>
+    </div>
+
+    <div class="product-container">
+      <h3>chomba azul</h3>
+      <img src="images/product-2.jpg" />
+      <div>
+        <select id="select-2" onchange="myFunction()">
+          <option value="5300">Talle 6</option>
+          <option value="5600">Talle 8</option>
+          <option value="5600">Talle 10</option>
+          <option value="6000">Talle 12</option>
+          <option value="6000">Talle 14</option>
+          <option value="6500">Talle S</option>
+          <option value="7000">Talle M</option>
+        </select>
+      </div>
+      <h1 id="price-2">$5300</h1>
+
+      <button class="button-add" onclick="add('product-2', parseInt(document.getElementById('select-2').value))">Agregar</button>
+    </div>
+
+    <div class="product-container">
+      <h3>chomba roja</h3>
+      <img src="images/product-3.jpg" />
+      <div>
+        <select id="select-3" onchange="myFunction()">
+          <option value="5300">Talle 4</option>
+          <option value="5300">Talle 6</option>
+          <option value="5600">Talle 8</option>
+          <option value="5600">Talle 10</option>
+          <option value="6000">Talle 12</option>
+          <option value="6000">Talle 14</option>
+          <option value="6500">Talle S</option>
+          <option value="7000">Talle M</option>
+          <option value="7500">Talle L</option>
+          <option value="7800">Talle XL</option>
+          <option value="7800">Talle XXL</option>
+        </select>
+      </div>
+      <h1 id="price-3">$5300</h1>
+      <button class="button-add" onclick="add('product-3', parseInt(document.getElementById('select-3').value))">Agregar</button>
+    </div>
+
+    <div class="product-container">
+      <h3>chomba blanca</h3>
+      <img src="images/product-4.jpg" />
+      <div>
+        <select id="select-4" onchange="myFunction()">
+          <option value="6000">Talle 14</option>
+          <option value="6500">Talle S</option>
+          <option value="7000">Talle M</option>
+          <option value="7500">Talle L</option>
+          <option value="7800">Talle XL</option>
+          <option value="7800">Talle XXL</option>
+        </select>
+      </div>
+      <h1 id="price-4">$6000</h1>
+      <button class="button-add" onclick="add('product-4', parseInt(document.getElementById('select-4').value))">Agregar</button>
+    </div>
+
+    <div class="product-container">
+      <h3>buzo secundario</h3>
+      <img src="images/product-5.jpg" />
+      <div>
+        <select id="select-5" onchange="myFunction()">
+          <option value="9800">Talle 2</option>
+          <option value="10000">Talle 3</option>
+          <option value="10000">Talle 4</option>
+          <option value="10000">Talle 5</option>
+          <option value="11000">Talle 6</option>
+        </select>
+      </div>
+      <h1 id="price-5">$9800</h1>
+      <button class="button-add" onclick="add('product-5', parseInt(document.getElementById('select-5').value))">Agregar</button>
+    </div>
+
+    <div class="product-container">
+      <h3>bermuda gris</h3>
+      <img src="images/product-6.jpg" />
+      <div>
+        <select id="select-6" onchange="myFunction()">
+          <option value="3500">Talle 4</option>
+          <option value="4000">Talle 6</option>
+          <option value="4000">Talle 8</option>
+          <option value="4000">Talle 10</option>
+          <option value="4000">Talle 12</option>
+          <option value="4500">Talle 14</option>
+          <option value="4500">Talle 16</option>
+        </select>
+      </div>
+      <h1 id="price-6">$3500</h1>
+      <button class="button-add" onclick="add('product-6', parseInt(document.getElementById('select-6').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>campera polar azul</h3>
+      <img src="images/product-7.jpg" />
+      <div>
+        <select id="select-7" onchange="myFunction()">
+          <option value="8000">Talle 4</option>
+          <option value="8000">Talle 6</option>
+          <option value="8500">Talle 8</option>
+          <option value="8500">Talle 10</option>
+          <option value="9000">Talle 12</option>
+          <option value="9000">Talle 14</option>
+        </select>
+      </div>
+      <h1 id="price-7">$8000</h1>
+      <button class="button-add" onclick="add('product-7', parseInt(document.getElementById('select-7').value))">Agregar</button>
+    </div>
+
+    <div class="product-container">
+      <h3>campera polar roja</h3>
+      <img src="images/product-8.jpg" />
+      <div>
+        <select id="select-8" onchange="myFunction()">
+          <option value="9000">Talle 0</option>
+          <option value="9500">Talle 1</option>
+          <option value="9500">Talle 2</option>
+          <option value="10000">Talle 3</option>
+          <option value="10000">Talle 4</option>
+          <option value="10500">Talle 5</option>
+        </select>
+      </div>
+      <h1 id="price-8">$9000</h1>
+      <button class="button-add" onclick="add('product-8', parseInt(document.getElementById('select-8').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>pantalón gris dama</h3>
+      <img src="images/product-9.jpg" />
+      <div>
+        <select id="select-9" onchange="myFunction()">
+          <option value="8000">Talle 0</option>
+          <option value="8500">Talle 1</option>
+          <option value="8500">Talle 2</option>
+          <option value="8500">Talle 3</option>
+          <option value="8500">Talle 4</option>
+          <option value="9000">Talle 5</option>
+        </select>
+      </div>
+      <h1 id="price-9">$8000</h1>
+      <button class="button-add" onclick="add('product-9', parseInt(document.getElementById('select-9').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>pantalón gris varón</h3>
+      <img src="images/product-10.jpg" />
+      <div>
+        <select id="select-10" onchange="myFunction()">
+          <option value="6500">Talle 16</option>
+          <option value="7000">Talle XS</option>
+          <option value="7500">Talle S</option>
+          <option value="7500">Talle M</option>
+          <option value="8000">Talle L</option>
+          <option value="8000">Talle XL</option>
+        </select>
+      </div>
+      <h1 id="price-10">$6500</h1>
+      <button class="button-add" onclick="add('product-10', parseInt(document.getElementById('select-10').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>pantalón azul niño</h3>
+      <img src="images/product-11.jpg" />
+      <div>
+        <select id="select-11" onchange="myFunction()">
+          <option value="5000">Talle 2</option>
+          <option value="5000">Talle 4</option>
+          <option value="5500">Talle 6</option>
+          <option value="5500">Talle 8</option>
+          <option value="5500">Talle 10</option>
+          <option value="6000">Talle 12</option>
+          <option value="6000">Talle 14</option>
+        </select>
+      </div>
+      <h1 id="price-11">$5000</h1>
+      <button class="button-add" onclick="add('product-11', parseInt(document.getElementById('select-11').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>pantalón de vestir dama</h3>
+      <img src="images/product-12.jpg" />
+      <div>
+        <select id="select-12" onchange="myFunction()">
+          <option value="8000">Talle 8/10</option>
+          <option value="8500">Talle 0</option>
+          <option value="9000">Talle 1</option>
+          <option value="9500">Talle 2</option>
+          <option value="9500">Talle 3</option>
+          <option value="10000">Talle 4</option>
+          <option value="10500">Talle 5</option>
+          <option value="10500">Talle 6</option>
+          <option value="10500">Talle 7</option>
+          <option value="10500">Talle 8</option>
+          <option value="12000">Talle XL</option>
+          <option value="12000">Talle XXL</option>
+        </select>
+      </div>
+      <h1 id="price-12">$8000</h1>
+      <button class="button-add" onclick="add('product-12', parseInt(document.getElementById('select-12').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>pintor st azul</h3>
+      <img src="images/product-13.jpg" />
+      <div>
+        <select id="select-13" onchange="myFunction()">
+          <option value="8200">Talle 1</option>
+          <option value="8200">Talle 2</option>
+          <option value="8200">Talle 3</option>
+        </select>
+      </div>
+      <h1 id="price-13">$8200</h1>
+      <button class="button-add" onclick="add('product-13', parseInt(document.getElementById('select-13').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>pintor st rojo</h3>
+      <img src="images/product-14.jpg" />
+      <div>
+        <select id="select-14" onchange="myFunction()">
+          <option value="8200">Talle 1</option>
+          <option value="8200">Talle 2</option>
+          <option value="8200">Talle 3</option>
+        </select>
+      </div>
+      <h1 id="price-14">$8200</h1>
+      <button class="button-add" onclick="add('product-14', parseInt(document.getElementById('select-14').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>medias</h3>
+      <img src="images/product-15.jpg" />
+      <div>
+        <select id="select-15" onchange="myFunction()">
+          <option value="1000">Talle 0</option>
+          <option value="1000">Talle 1</option>
+          <option value="1000">Talle 2</option>
+        </select>
+      </div>
+      <h1 id="price-15">$1000</h1>
+      <button class="button-add" onclick="add('product-15', parseInt(document.getElementById('select-15').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>set rojo</h3>
+      <img src="images/product-16.jpg" />
+      <div>
+        <select id="select-16" onchange="myFunction()">
+          <option value="2500">Talle único</option>
+        </select>
+      </div>
+      <h1 id="price-16">$2500</h1>
+      <button class="button-add" onclick="add('product-16', parseInt(document.getElementById('select-16').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>set azul</h3>
+      <img src="images/product-17.jpg" />
+      <div>
+        <select id="select-17" onchange="myFunction()">
+          <option value="2500">Talle único</option>
+        </select>
+      </div>
+      <h1 id="price-17">$2500</h1>
+      <button class="button-add" onclick="add('product-17', parseInt(document.getElementById('select-17').value))">Agregar</button>
+    </div>
+    <div class="product-container">
+      <h3>short</h3>
+      <img src="images/product-18.jpg" />
+      <div>
+        <select id="select-18" onchange="myFunction()">
+          <option value="3000">Talle 2</option>
+          <option value="3000">Talle 4</option>
+          <option value="3000">Talle 6</option>
+          <option value="3000">Talle 8</option>
+        </select>
+      </div>
+      <h1 id="price-18">$3000</h1>
+      <button class="button-add" onclick="add('product-18', parseInt(document.getElementById('select-18').value))">Agregar</button>
+      
+    </div>
+  </div>
+
+  <!-- <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <p>Ubicación:</p>
+          <p>Calle Falsa 123</p>
+        </div>
+        <div class="col-4">
+          <p>Contacto:</p>
+          <p><a href="tel:+11234567890">+1 (123) 456-7890</a></p>
+        </div>
+        <div class="col-4">
+          <p>Sobre nosotros:</p>
+          <p>
+            Somos una empresa dedicada a la venta de uniformes de alta calidad.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+  <footer>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#6dd459 " fill-opacity="1" d="M0,256L48,218.7C96,181,192,107,288,96C384,85,480,139,576,181.3C672,224,768,256,864,234.7C960,213,1056,139,1152,112C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+  </footer>
+</body>
