@@ -18,11 +18,15 @@
         padding: 1rem;
       "
     >
-      <a
+      <!-- <a
         href="#"
         style="color: #ffffff; font-size: 1.5rem; text-decoration: none"
-        >STYLOS</a
-      >
+        >STYLOS
+      </a> -->
+
+      <div>
+        <img src="logo-nav2.svg" alt="" width="200px">
+      </div>
       <form style="display: flex">
         <input
           type="text"
@@ -60,7 +64,7 @@
         </button>
       </form>
       <button id="checkout" class="button-checkout" onclick="pay()">
-        Pagar
+        Carrito
       </button>
     </div>
   </nav>
@@ -106,7 +110,7 @@
       <div>
         <select id="select-1" onchange="myFunction()">
           <option value="" disabled selected>Seleccione un talle</option>
-          <option value="7700">Talle 4</option>
+          <option name="Buzo primario ST talle 4" value="7700">Talle 4</option>
           <option value="7700">Talle 6</option>
           <option value="8000">Talle 8</option>
           <option value="8000">Talle 10</option>
@@ -116,7 +120,7 @@
         </select>
       </div>
       <h1 id="price-1">$7700</h1>
-      <button class="button-add" onclick="add('product-1', parseInt(document.getElementById('select-1').value))">Agregar</button>
+      <button class="button-add" onclick="add(document.getElementById('select-1').name, parseInt(document.getElementById('select-1').value))">Agregar</button>
     </div>
 
     <div class="product-container">
