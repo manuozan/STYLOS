@@ -1,6 +1,34 @@
 let products = [];
 let total = 0;
 
+
+$(document).ready(function(){
+  $("#filter-input").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $(".product-container").filter(function() {
+      $(this).toggle($(this).find("h3").text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   var filterInput = document.getElementById("filter-input");
+//   filterInput.addEventListener("keyup", function() {
+//   var value = filterInput.value.toLowerCase();
+//   var productContainers = document.querySelectorAll(".product-container");
+//   productContainers.forEach(function(productContainer) {
+//   var productTitle = productContainer.querySelector("h3").textContent.toLowerCase();
+//   if (productTitle.indexOf(value) > -1) {
+//   productContainer.style.display = "";
+//   } else {
+//   productContainer.style.display = "none";
+//   }
+//   });
+//   });
+//   });
+
+
+
 function add(product, price) {
     console.log(product, price);
     products.push(product);
@@ -37,15 +65,15 @@ function pay() {
         document.getElementById("price-18").innerHTML =  '$'+ document.getElementById("select-18").value;
     }
 
-    function search() {
-        let input = document.getElementById("searchInput").value;
-        let products = document.getElementsByClassName("product-container");
-        for (let i = 0; i < products.length; i++) {
-          let productName = products[i].getElementsByTagName("h3")[0].innerText;
-          if (productName.toLowerCase().includes(input.toLowerCase())) {
-            products[i].style.display = "block";
-          } else {
-            products[i].style.display = "none";
-          }
-        }
-      }
+    // function search() {
+    //     let input = document.getElementById("filter-input").value;
+    //     let products = document.getElementsByClassName("product-container");
+    //     for (let i = 0; i < products.length; i++) {
+    //       let productName = products[i].getElementsByTagName("h3")[0].innerText;
+    //       if (productName.toLowerCase().includes(input.toLowerCase())) {
+    //         products[i].style.display = "block";
+    //       } else {
+    //         products[i].style.display = "none";
+    //       }
+    //     }
+    //   }

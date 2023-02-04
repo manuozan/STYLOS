@@ -80,6 +80,13 @@ select{
     margin: 20px;
 }
 
+
+.filter{
+  display: none;
+}
+
+
+
 .button-checkout {
     background-color: white;
     color: black;
